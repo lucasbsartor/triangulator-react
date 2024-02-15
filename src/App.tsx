@@ -1,4 +1,4 @@
-import TriangleCalculator from './TriangleCalculator'
+import TriangleCalculator from './components/TriangleCalculator'
 import { Toaster } from './components/ui/toaster'
 
 function App() {

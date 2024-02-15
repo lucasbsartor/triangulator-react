@@ -23,10 +23,7 @@ export const getTriangleType = (
   sideA: number,
   sideB: number,
   sideC: number
-): TriangleTypes | 'invalid' => {
-  if (isValidTriangle(sideA, sideB, sideC)) {
-    return 'invalid'
-  }
+): TriangleTypes => {
   if (sideA === sideB && sideB === sideC) {
     return 'equilatero'
   }
@@ -40,10 +37,7 @@ export const getTriangleAngles = (
   sideA: number,
   sideB: number,
   sideC: number
-): [number, number, number] | 'invalid' => {
-  if (isValidTriangle(sideA, sideB, sideC)) {
-    return 'invalid'
-  }
+): [number, number, number] => {
   const firstAngle = Math.floor(
     Math.acos((sideB ** 2 + sideC ** 2 - sideA ** 2) / (2 * sideB * sideC)) *
       (180 / Math.PI)
