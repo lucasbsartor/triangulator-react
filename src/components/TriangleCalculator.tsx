@@ -1,5 +1,3 @@
-import { useState } from 'react'
-import { Triangle } from '../lib/triangle'
 import {
   Card,
   CardContent,
@@ -9,9 +7,11 @@ import {
 } from './ui/card'
 import Results from './Results'
 import TriangleForm from './TriangleForm'
+import { useAtom } from 'jotai'
+import { triangleAtom } from './triangleAtom'
 
 const TriangleCalculator = () => {
-  const [triangle, setTriangle] = useState<Triangle | null | undefined>()
+  const [triangle] = useAtom(triangleAtom)
 
   return (
     <>

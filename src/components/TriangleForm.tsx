@@ -18,6 +18,8 @@ import {
 } from './ui/form'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
+import { useAtom } from 'jotai'
+import { triangleAtom } from './triangleAtom'
 
 const triangleFormSchema = z.object({
   sideA: z.coerce
@@ -35,6 +37,9 @@ const triangleFormSchema = z.object({
 })
 
 const TriangleForm = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [triangle, setTriangle] = useAtom(triangleAtom)
+
   const triangleForm = useForm<z.infer<typeof triangleFormSchema>>({
     resolver: zodResolver(triangleFormSchema),
     defaultValues: {
@@ -58,7 +63,7 @@ const TriangleForm = () => {
       })
     }
 
-    console.log({
+    setTriangle({
       type: triangleType,
       angles: triangleAngles,
       vertices: [sideA, sideB, sideC],
